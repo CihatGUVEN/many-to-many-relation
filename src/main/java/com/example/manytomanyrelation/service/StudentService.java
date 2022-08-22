@@ -4,5 +4,8 @@ import com.example.manytomanyrelation.dto.StudentDto;
 
 public interface StudentService {
 
-    public StudentDto addStudent(StudentDto studentDto);
+    public StudentDto addStudentWithParent(StudentDto studentDto);
+
+    StudentDto getById(Long id);
+
 }

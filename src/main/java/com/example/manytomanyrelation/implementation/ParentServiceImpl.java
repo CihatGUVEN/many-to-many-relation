@@ -43,7 +43,7 @@ public class ParentServiceImpl implements ParentService {
 
     @Override
     public boolean existsParentByPhone_Number(String phoneNumber) {
-        return false;
+        return parentRepository.existsParentByPhone_Number(phoneNumber);
     }
 
     @Override
@@ -60,5 +60,10 @@ public class ParentServiceImpl implements ParentService {
         parent.setStudents(parentDto.getStudents());
         return parentDtoMapper.entityToDto(parentRepository.save(parent));
 
+    }
+
+    @Override
+    public Parent findByPhone_Number(String phoneNumber) {
+        return parentRepository.findByPhone_Number(phoneNumber).orElseThrow(RuntimeException::new);
     }
 }
